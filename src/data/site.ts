@@ -6,9 +6,9 @@ export const siteConfig = {
   tagline: "Promoteur immobilier haut standing",
   description:
     "MOKRANI Promotion, promoteur immobilier haut standing à Alger. Résidences d'exception, vente d'appartements et accompagnement complet jusqu'à la remise des clés.",
-  phone: "+213 552 47 69 52",
-  phoneHref: "+213552476952",
-  whatsapp: "213552476952",
+  phone: "+213 540 68 49 35",
+  phoneHref: "+213540684935",
+  whatsapp: "213540684935",
   email: "contact@mokranipromotion.com",
   emailHref: "contact@mokranipromotion.com",
   hours: "Samedi – Jeudi : 9h00 – 17h30",
@@ -28,7 +28,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/mokranipromotion",
     youtube: "https://www.youtube.com/@mokranipromotion",
     tiktok: "https://www.tiktok.com/@mokranipromotion",
-    whatsapp: "213552476952",
+    whatsapp: "213540684935",
   },
   seo: {
     ogLocale: "fr_DZ",
