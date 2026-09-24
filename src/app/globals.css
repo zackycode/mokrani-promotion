@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+
+  --color-gold-50: #faf6ee;
+  --color-gold-100: #f3ead8;
+  --color-gold-200: #e6d4ae;
+  --color-gold-300: #d6b97c;
+  --color-gold-400: #c9a25e;
+  --color-gold-500: #bb8b45;
+  --color-gold-600: #a8763a;
+  --color-gold-700: #8a5d31;
+  --color-gold-800: #714c2c;
+  --color-gold-900: #5e4029;
+
+  --color-ink-50: #f3f4f6;
+  --color-ink-100: #e2e5e9;
+  --color-ink-200: #c6cbd4;
+  --color-ink-300: #9ea7b4;
+  --color-ink-400: #6f7a8b;
+  --color-ink-500: #525d6d;
+  --color-ink-600: #3f4856;
+  --color-ink-700: #333b47;
+  --color-ink-800: #242b34;
+  --color-ink-900: #161c23;
+  --color-ink-950: #0d1115;
+
+  --color-cream: #f8f5ef;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-ink-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold-200);
+  color: var(--color-ink-950);
+}
