@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectFilters from "@/components/ProjectFilters";
+import JsonLd from "@/components/JsonLd";
 import { ArrowRightIcon } from "@/components/icons";
 import {
   projects,
@@ -19,14 +20,65 @@ export const metadata: Metadata = {
     siteConfig.nameFull +
     " à Alger : Hydra, Chéraga, Birkhadem, El Achour, Dely Ibrahim, Kouba. Appartements F2 à F5, en cours ou livrés.",
   alternates: { canonical: "/projets" },
+  openGraph: {
+    title: "Nos résidences — Appartements haut standing à Alger",
+    description:
+      "Découvrez les résidences haut standing de " +
+      siteConfig.nameFull +
+      " à Alger : Hydra, Chéraga, Birkhadem, El Achour, Dely Ibrahim, Kouba.",
+    url: `${siteConfig.url}/projets`,
+    locale: "fr_FR",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function ProjetsPage() {
   const localiteList = listLocalites();
   const typologieList = listTypologies();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Nos résidences — Appartements haut standing à Alger",
+    description:
+      "Parcourez nos résidences haut standing à Alger : Hydra, Chéraga, Birkhadem, El Achour, Dely Ibrahim, Kouba.",
+    url: `${siteConfig.url}/projets`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteConfig.nameFull,
+      url: siteConfig.url,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: projects.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${p.nom} — Appartements à ${p.localite}, Alger`,
+        url: `${siteConfig.url}/projets/${p.slug}`,
+      })),
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: siteConfig.url },
+        { "@type": "ListItem", position: 2, name: "Nos résidences", item: `${siteConfig.url}/projets` },
+      ],
+    },
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <section className="border-b border-ink-100 bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold-600">
