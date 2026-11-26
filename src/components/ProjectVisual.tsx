@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 interface ProjectVisualProps {
@@ -20,6 +21,21 @@ export default function ProjectVisual({
 }: ProjectVisualProps) {
   const gradient = gradients[project.slug] ?? "from-ink-800 via-ink-700 to-ink-600";
   const initial = project.nom.replace("Résidence ", "").charAt(0);
+
+  if (project.image) {
+    return (
+      <div className={`relative overflow-hidden bg-ink-100 ${className}`}>
+        <Image
+          src={project.image}
+          alt={`${project.nom} à ${project.localite}`}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/35 to-transparent" />
+      </div>
+    );
+  }
 
   return (
     <div

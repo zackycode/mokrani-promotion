@@ -21,6 +21,7 @@ export interface Project {
   typologies: Typologie[];
   equipements: string[];
   featured: boolean;
+  image?: string;
 }
 
 export interface Localite {
@@ -63,6 +64,7 @@ export const projects: Project[] = [
       "Espaces verts",
     ],
     featured: true,
+    image: "/images/projets/facade2-E-scaled.jpg",
   },
   {
     slug: "residence-jade",
@@ -93,6 +95,7 @@ export const projects: Project[] = [
       "Espaces verts",
     ],
     featured: true,
+    image: "/images/projets/4CoZq2fQkT8UVypkyY1bntSkjvsVddI9eLIaGlFA.jpg",
   },
   {
     slug: "residence-grenat",
@@ -123,6 +126,7 @@ export const projects: Project[] = [
       "Copropriété gérée",
     ],
     featured: true,
+    image: "/images/projets/images.jpeg",
   },
   {
     slug: "residence-onyx",
@@ -183,6 +187,7 @@ export const projects: Project[] = [
       "Espaces verts",
     ],
     featured: true,
+    image: "/images/projets/residence-vega-said-hamdine-592x444.webp",
   },
   {
     slug: "residence-smaragde",
